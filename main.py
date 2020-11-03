@@ -1,3 +1,4 @@
+import json
 from jugadores import FootballPlayer, BasketballPlayer
 
 print("¡ingresa algunas datos de jugadores de futbol!")
@@ -14,8 +15,8 @@ nuevo_jugador = FootballPlayer(first_name= f_name,last_name= l_name,height_cm= h
                                weight_kg= float(weight), goals=int(goals),
                                yellow_cards=int(y_cards), red_cards=int(r_cards))
 
-with open("jugadores.py", "w") as fd:
-    fd.write(str(nuevo_jugador))
+with open("jugadores.json", "w") as fd:
+    fd.write(json.dumps(nuevo_jugador.to_dict()))
 
 print("!el jugador se ingreso con exito¡")
 
